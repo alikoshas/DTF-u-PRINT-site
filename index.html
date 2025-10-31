@@ -1,15 +1,87 @@
 <!doctype html>
 <html lang="ru">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Only U DTF печать</title><link rel="stylesheet" href="styles.css"></head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Only U DTF печать</title>
+    <link rel="stylesheet" href="./css/styles.css?v=1">
+</head>
 <body>
 <div class="animated-bg"></div>
-<header class="site-header"><div class="container header-inner"><a class="logo" href="#">Only U DTF</a><nav class="main-nav"><a href="#portfolio">Примеры</a></nav><a class="cta" href="#contact">Заказать</a></div></header>
-<main class="container"><section id="portfolio"><h2>Примеры наших работ</h2><div class="gallery"><button class="gallery-item" data-src="product_1.jpeg"><img src="product_1.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_2.jpeg"><img src="product_2.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_3.jpeg"><img src="product_3.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_4.jpeg"><img src="product_4.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_5.jpeg"><img src="product_5.jpeg" alt="Пример"></button>
-</div></section></main>
-<script src="script.js"></script>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="#">Only U DTF</a>
+        <nav class="main-nav">
+            <a href="#about">О компании</a>
+            <a href="#services">Услуги</a>
+            <a href="#portfolio">Примеры</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+        <a class="cta" href="#contact">Заказать</a>
+    </div>
+</header>
+
+<main class="container">
+    <!-- О компании -->
+    <section id="about" class="card">
+        <h2>О компании</h2>
+        <p><strong>Only U DTF печать</strong> — профессиональная DTF-печать на современном оборудовании.
+            Мы используем редкий DTF-принтер, обеспечивающий яркие, детализированные и износостойкие принты.</p>
+        <p>Принт стойкий к стирке и износу — изделия служат долго.</p>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="card">
+        <h2>Наши услуги</h2>
+        <ul class="list">
+            <li>Индивидуальные стикеры с вашим дизайном</li>
+            <li>DTF-печать c индивидуальным дизайном на одежду, сумки кружки</li>
+            <li>Печать стикеров и логотипов</li>
+            <li>Тиражи: малые и большие</li>
+            <li>Помощь и согласование на всех этапах создания проекта</li>
+        </ul>
+    </section>
+
+    <!-- Примеры (это твой существующий блок) -->
+    <section id="portfolio">
+        <h2>Примеры наших работ</h2>
+        <div class="gallery">
+            <button class="gallery-item" data-src="images/product_1.jpeg">
+                <img src="images/product_1.jpeg" alt="Пример 1">
+            </button>
+            <button class="gallery-item" data-src="images/product_2.jpeg">
+                <img src="images/product_2.jpeg" alt="Пример 2">
+            </button>
+            <button class="gallery-item" data-src="images/product_3.jpeg">
+                <img src="images/product_3.jpeg" alt="Пример 3">
+            </button>
+            <button class="gallery-item" data-src="images/product_4.jpeg">
+                <img src="images/product_4.jpeg" alt="Пример 4">
+            </button>
+            <button class="gallery-item" data-src="images/product_5.jpeg">
+                <img src="images/product_5.jpeg" alt="Пример 5">
+            </button>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="card">
+        <h2>Контакты</h2>
+        <p>📧 Email: <a href="mailto:info@printdtf.ru">info@printdtf.ru</a><br>
+            📞 Телефон: <a href="tel:+79067017250">+7 906 701-72-50</a><br>
+            📍 Москва, Старо-Калужское ш., д. 62, стр. 6 (м. Воронцовская, 5 мин от 12-го выхода)</p>
+        <p>🚚 Доставка по всей России</p>
+        <a class="cta" href="mailto:info@printdtf.ru">Сделать заказ</a>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        © 2025 Only U DTF печать — все права защищены.
+    </div>
+</footer>
+
+<script src="./scripts/script.js" defer></script>
 </body>
 </html>
