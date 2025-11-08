@@ -1,18 +1,18 @@
-:root {
+:root{
     --blue:#0b6efd; --orange:#ff8c42; --red:#ff3b30; --yellow:#ffd24a;
     --text:#1f2328; --muted:#6b7280; --bg:#ffffff; --glass:rgba(255,255,255,.6);
     --shadow:0 8px 24px rgba(0,0,0,.12);
 }
 
-/* Градиентный фон */
-.animated-bg {
-    position: fixed; inset: 0;
-    background: linear-gradient(120deg,var(--blue),var(--red),var(--orange),var(--yellow));
-    background-size: 400% 400%;
-    animation: gradientMove 8s linear infinite;
-    z-index: -1;
+/* --- BG gradient --- */
+.animated-bg{
+    position:fixed; inset:0;
+    background:linear-gradient(120deg,var(--blue),var(--red),var(--orange),var(--yellow));
+    background-size:400% 400%;
+    animation:gradientMove 8s linear infinite;
+    z-index:-1;
 }
-@keyframes gradientMove {
+@keyframes gradientMove{
     0%{background-position:0% 50%}
     25%{background-position:50% 50%}
     50%{background-position:100% 50%}
@@ -20,33 +20,33 @@
     100%{background-position:0% 50%}
 }
 
-/* Базовые */
-*{box-sizing:border-box}
-html,body{height:100%}
+/* --- Base --- */
+*{ box-sizing:border-box }
+html,body{ height:100% }
 body{
-    margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
     color:var(--text); background:var(--bg);
 }
-.container{
-    width:min(1100px, 92%);
-    margin-inline:auto;
-}
+.container{ width:min(1100px,92%); margin-inline:auto }
 
-/* Шапка */
+/* --- Header --- */
 .site-header{
     position:sticky; top:0; inset-inline:0; z-index:10;
-    backdrop-filter: saturate(160%) blur(8px);
-    background: var(--glass);
-    box-shadow: var(--shadow);
+    backdrop-filter:saturate(160%) blur(8px);
+    background:var(--glass);
+    box-shadow:var(--shadow);
 }
 .header-inner{
     display:flex; align-items:center; justify-content:space-between;
     padding:12px 0;
 }
 .logo{
-    font-weight:700; text-decoration:none; color:#fff; letter-spacing:.5px;
-    padding:.4rem .7rem; border-radius:8px; background:rgba(0,0,0,.25);
+    font-weight:800; text-decoration:none; letter-spacing:.4px;
+    color:transparent; background:linear-gradient(90deg,#111827,#0b6efd);
+    -webkit-background-clip:text; background-clip:text;
 }
+.logo:hover{ opacity:.9 }
 .main-nav a{
     color:var(--text); text-decoration:none; margin-inline:10px; font-weight:500;
 }
@@ -58,52 +58,167 @@ body{
 }
 .cta:hover{ transform:translateY(-1px) }
 
-/* Контент */
-main{ padding-block:28px 48px; }
-h2{ margin:0 0 16px 0 }
+/* Header CTA group */
+.cta-wrap{ display:flex; gap:10px; align-items:center; flex-shrink:0 }
+.cta-ghost{
+    background:transparent;
+    color:#111827;
+    border:2px solid #111827;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center !important;
+}
+.cta-ghost:hover{ transform:translateY(-1px); opacity:.95 }
 
-/* Галерея */
+/* Mobile header */
+@media (max-width:720px){
+    .header-inner{ flex-wrap:wrap; row-gap:8px }
+    .cta-wrap{ order:3; width:100% }
+    .cta-wrap .cta, .cta-wrap .cta-ghost{ width:100% }
+    .main-nav a{ margin-inline:8px }
+}
+
+/* --- Content --- */
+main{ padding-block:28px 48px }
+h2{ margin:0 0 16px }
+
+/* --- Gallery --- */
 .gallery{
     display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;
 }
-.gallery-item{
-    padding:0; border:0; background:transparent; cursor:pointer;
-}
+.gallery-item{ padding:0; border:0; background:transparent; cursor:pointer }
 .gallery-item img{
     width:100%; height:180px; object-fit:cover; border-radius:12px;
     display:block; box-shadow:var(--shadow);
 }
-.gallery-item img:hover{ transform:translateY(-1px); }
+.gallery-item img:hover{ transform:translateY(-1px) }
+@media (max-width:520px){ .gallery-item img{ height:150px } }
 
-/* Небольшая адаптация */
-@media (max-width:520px){
-    .gallery-item img{ height:150px }
-}
-
-/* Карточные блоки и списки */
+/* --- Card blocks & lists --- */
 .card{
-    background: rgba(255,255,255,.85);
-    border-radius: 14px;
-    padding: 18px 16px;
-    margin: 18px 0;
-    box-shadow: 0 8px 24px rgba(0,0,0,.08);
-    backdrop-filter: blur(6px);
+    background:rgba(255,255,255,.85);
+    border-radius:14px; padding:18px 16px; margin:18px 0;
+    box-shadow:0 8px 24px rgba(0,0,0,.08); backdrop-filter:blur(6px);
 }
-.card h2{ margin: 0 0 10px 0; }
-.list{ margin: 0; padding-left: 18px; }
-.list li{ margin: 6px 0; }
+.card h2{ margin:0 0 10px }
+.list{ margin:0; padding-left:18px }
+.list li{ margin:6px 0 }
 
-/* Подвал */
+/* Links inside cards (e.g., contacts) */
+.card a{ color:#0b6efd; text-decoration:none }
+.card a:hover{ text-decoration:underline }
+
+/* --- Footer --- */
 .site-footer{
-    padding: 28px 0 40px;
-    color: #111;
-    background: rgba(255,255,255,.6);
-    backdrop-filter: blur(6px);
-    margin-top: 24px;
-    box-shadow: 0 -6px 18px rgba(0,0,0,.06);
+    padding:28px 0 40px; color:#111;
+    background:rgba(255,255,255,.6); backdrop-filter:blur(6px);
+    margin-top:24px; box-shadow:0 -6px 18px rgba(0,0,0,.06);
+    text-align:center;
 }
 
-/* Небольшие улучшения ссылок в тексте */
-.card a{ color: #0b6efd; text-decoration: none; }
-.card a:hover{ text-decoration: underline; }
+/* --- Contacts section --- */
+#contact{ text-align:center }
+#contact .cta{ display:inline-block; margin-top:12px }
 
+/* --- Delivery: fix bullets & centering --- */
+#delivery{ text-align:initial !important }
+#delivery h2, #delivery h3{ text-align:center }
+#delivery ul{ list-style:none; padding:0; margin:12px 0 }
+#delivery li{ margin:6px 0 }
+#delivery li::before{ content:"• "; color:#ff3b30; font-weight:700 }
+
+/* ===================== Calculator ===================== */
+#calculator .calc{
+    width:100%; max-width:680px; margin:0 auto;
+    display:flex; flex-direction:column; gap:16px;
+}
+
+/* Toggle buttons */
+#calculator .toggle{ display:flex; gap:10px; flex-wrap:wrap }
+#calculator .toggle label{ position:relative; flex:1 1 260px; min-width:220px }
+#calculator .toggle input{ position:absolute; inset:0; opacity:0; pointer-events:none }
+#calculator .btn{
+    display:flex; align-items:center; justify-content:center;
+    width:100%; min-height:46px; padding:10px 16px;
+    border-radius:10px; border:2px solid #111827;
+    background:#fff; color:#111827; font-weight:700;
+    box-shadow:var(--shadow); transition:.15s ease; text-align:center;
+}
+#calculator .btn:hover{ transform:translateY(-1px) }
+#calculator .toggle input:checked + .btn{
+    background:#111827; color:#fff; border-color:#111827;
+}
+
+/* Inputs */
+#calculator .field{ display:flex; flex-direction:column; gap:6px }
+#calculator .label{ font-size:14px; color:var(--muted); margin-left:10px }
+#calculator .input{
+    display:flex; align-items:center; gap:10px; height:46px;
+    border:2px solid #e5e7eb; border-radius:999px; padding:10px 14px; background:#fff;
+    transition:.15s ease; box-shadow:var(--shadow);
+}
+#calculator .input:focus-within{ border-color:var(--blue); box-shadow:0 0 0 6px rgba(11,110,253,.12) }
+#calculator .input input{
+    border:0; outline:0; width:100%; background:transparent; font-size:16px; color:var(--text);
+}
+#calculator .suffix{ color:var(--muted); font-size:14px }
+
+/* Actions */
+#calculator .actions,
+#calculator .panel {
+    text-align: center;
+}
+
+#calculator .actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* центрируем кнопку и текст ошибки */
+    justify-content: center;
+}
+#calculator .panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* центрируем заголовок и блок суммы */
+    justify-content: center;
+}
+#calculator .primary{
+    width:100%; height:46px; border:0; border-radius:10px;
+    background:#111827; color:#fff; font-weight:700; cursor:pointer;
+    transition:.15s ease; box-shadow:var(--shadow);
+}
+#calculator .primary:disabled{ background:#111827; opacity:.5; cursor:not-allowed }
+#calculator .primary:hover:not(:disabled){ transform:translateY(-1px) }
+
+/* Result panel + sum (dark) */
+#calculator .panel{
+    background:#111827; color:#fff; border:none;
+    border-radius:14px; padding:20px; box-shadow:var(--shadow);
+}
+#calculator .panel h3{ color:#fff }
+#calculator .money{
+    background:#111827; color:#fff;
+    border-radius:12px; padding:14px 16px; margin-top:12px;
+    box-shadow:var(--shadow);
+}
+#calculator .money b{ font-size:22px }
+#calculator .err{ color:#b91c1c; font-size:14px; margin-top:6px }
+
+/* Bottom Telegram CTA under result */
+#calculator .calc-cta{
+    display:flex; margin-top:16px; justify-content:center; align-items:center;
+    width:100%; height:46px; border-radius:10px;
+    border:2px solid #111827; color:#111827; background:transparent;
+    font-weight:700; text-decoration:none !important; box-shadow:var(--shadow);
+    transition:.15s ease;
+}
+#calculator .calc-cta:hover{ transform:translateY(-1px) }
+/* make sure .card a rule doesn't recolor it */
+#calculator a.cta-ghost{ color:#111827 !important }
+
+/* Calculator mobile tweaks */
+@media (max-width:520px){
+    #calculator .toggle{ gap:8px }
+    #calculator .toggle label{ min-width:100% }
+}
