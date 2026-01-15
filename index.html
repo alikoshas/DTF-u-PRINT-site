@@ -1,15 +1,191 @@
 <!doctype html>
 <html lang="ru">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Only U DTF печать</title><link rel="stylesheet" href="styles.css"></head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>ONLY Y DTF печать</title>
+    <link rel="stylesheet" href="./css/styles.css?v=3">
+</head>
 <body>
 <div class="animated-bg"></div>
-<header class="site-header"><div class="container header-inner"><a class="logo" href="#">Only U DTF</a><nav class="main-nav"><a href="#portfolio">Примеры</a></nav><a class="cta" href="#contact">Заказать</a></div></header>
-<main class="container"><section id="portfolio"><h2>Примеры наших работ</h2><div class="gallery"><button class="gallery-item" data-src="product_1.jpeg"><img src="product_1.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_2.jpeg"><img src="product_2.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_3.jpeg"><img src="product_3.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_4.jpeg"><img src="product_4.jpeg" alt="Пример"></button>
-<button class="gallery-item" data-src="product_5.jpeg"><img src="product_5.jpeg" alt="Пример"></button>
-</div></section></main>
-<script src="script.js"></script>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="#top">ONLY Y DTF</a>
+        <nav class="main-nav">
+            <a href="#about">О компании</a>
+            <a href="#services">Услуги</a>
+            <a href="#portfolio">Примеры</a>
+            <a href="#contact">Контакты</a>
+            <a href="#delivery">Доставка</a>
+            <a href="#calculator">Калькулятор</a> <!-- NEW -->
+        </nav>
+        <div class="cta-wrap">
+            <a class="cta cta-ghost" href="https://t.me/OnlyDTFprint" target="_blank" rel="noopener">Связаться с нами</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- О компании -->
+    <section id="about" class="card">
+        <h2>О компании</h2>
+        <p><strong>ONLY Y DTF</strong> — мы используем гибридную и продвинутую технологию,
+            которая сочетает в себе преимущества двух методов: UV-печати и DTF, поэтому
+            наши изделия можно клеить даже на металл и стекло</p>
+        <p>Наше оборудование создает яркие,
+            детализированные и объемные принты, включая печать сложных форм на фольге (золото, серебро)</p>
+        <p>Принт стойкий, качество клея позволяет держаться наклейке на поверхности длительное время</p>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="card">
+        <h2>Наши услуги</h2>
+        <ul class="list">
+            <li>Напечатаем  яркие наклейки, стикеры и логотивы с вашим дизайном</li>
+            <li>DTF-печать для размещения на любой твердой поверхности: кружки, термосы, ручки, брелоки и т.д. ❌кроме текстиля и резины</li>
+            <li>Тиражи любого объема</li>
+            <li>Печать по готовому дизайн-макету или помощь в его подготовке</li>
+        </ul>
+    </section>
+
+    <section id="calculator" class="card">
+        <h2>Калькулятор</h2>
+        <p style="margin-top:0;color:var(--muted)">
+            Введите размеры изделия, зазор и количество. Выберите тип печати и нажмите «Рассчитать».
+        </p>
+
+        <div class="calc">
+            <div class="toggle" role="tablist" aria-label="Тип печати">
+                <label>
+                    <input type="radio" name="printType" value="fullcolor" checked>
+                    <span class="btn">ПОЛНОЦВЕТНАЯ ПЕЧАТЬ</span>
+                </label>
+                <label>
+                    <input type="radio" name="printType" value="metallic">
+                    <span class="btn">ЗОЛОТО\СЕРЕБРО</span>
+                </label>
+            </div>
+
+            <div class="field">
+                <span class="label">Длина изделия</span>
+                <div class="input">
+                    <input id="length" type="text" inputmode="decimal" placeholder="Напр. 50" aria-label="Длина, мм">
+                    <span class="suffix">мм</span>
+                </div>
+            </div>
+
+            <div class="field">
+                <span class="label">Ширина изделия</span>
+                <div class="input">
+                    <input id="width" type="text" inputmode="decimal" placeholder="Напр. 30" aria-label="Ширина, мм">
+                    <span class="suffix">мм</span>
+                </div>
+            </div>
+
+            <div class="field">
+                <span class="label">Расстояние между изделиями</span>
+                <div class="input">
+                    <input id="gap" type="text" inputmode="decimal" value="5" aria-label="Зазор, мм">
+                    <span class="suffix">мм</span>
+                </div>
+            </div>
+
+            <div class="field">
+                <span class="label">Количество</span>
+                <div class="input">
+                    <input id="qty" type="text" inputmode="numeric" placeholder="Напр. 200" aria-label="Количество, шт">
+                    <span class="suffix">шт</span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="primary" id="calcBtn" type="button" disabled>РАССЧИТАТЬ</button>
+                <div id="err" class="err" role="alert" aria-live="assertive"></div>
+            </div>
+
+            <div class="panel" aria-live="polite">
+                <h3 style="margin:0 0 8px;font-size:18px">Результат</h3>
+                <div class="money" style="display:none" id="money">
+                    <div><div style="opacity:.9">Сумма</div><b id="sum">—</b></div>
+                </div>
+            </div>
+            <a class="cta cta-ghost calc-cta" href="https://t.me/OnlyDTFprint" target="_blank" rel="noopener">
+                Связаться с нами
+            </a>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="card">
+        <h2>Контакты</h2>
+        <p>📧 Email: <a href="mailto:info@printdtf.ru">info@onlyudtf.ru</a><br>
+            📞 Телефон: <a href="tel:+79955077479">+7 995 507 74 79</a><br>
+            📍 Москва, Старо-Калужское ш., д. 62, стр. 6 (м. Воронцовская, 5 мин от 12-го выхода)</p>
+    </section>
+
+    <!-- Примеры -->
+    <section id="portfolio">
+        <h2>Примеры наших работ</h2>
+        <div class="gallery">
+            <button class="gallery-item" data-src="images/product_1.jpeg">
+                <img src="images/product_1.jpeg" alt="Пример 1">
+            </button>
+            <button class="gallery-item" data-src="images/product_2.jpeg">
+                <img src="images/product_2.jpeg" alt="Пример 2">
+            </button>
+            <button class="gallery-item" data-src="images/product_3.jpeg">
+                <img src="images/product_3.jpeg" alt="Пример 3">
+            </button>
+            <button class="gallery-item" data-src="images/product_4.jpeg">
+                <img src="images/product_4.jpeg" alt="Пример 4">
+            </button>
+            <button class="gallery-item" data-src="images/product_5.jpeg">
+                <img src="images/product_5.jpeg" alt="Пример 5">
+            </button>
+        </div>
+    </section>
+
+    <section id="delivery" class="card">
+        <h2>Доставка</h2>
+
+        <h3>Сроки и стоимость доставки обговариваются индивидуально</h3>
+
+        <h3>🏠 Самовывоз</h3>
+        <p>Вы можете лично забрать свой заказ в нашем офисе,
+            расположенном по адресу: Москва, Старо-Калужское ш., д. 62, стр. 6 (станция метро «Воронцовская», 5 минут пешком от 12-го выхода).</p>
+        <p>Если приехать самим не получается, мы можем отдать заказ вашему представителю или курьерской службе.
+            Для этого потребуется доверенность на получение товара.</p>
+
+        <h3>🚚 Доставка по Москве</h3>
+        <p>Осуществляется по 100% предоплате за продукцию и доставку (рассчитывается отдельно)</p>
+        <ul>
+            <li>Яндекс доставка</li>
+            <li>СДЭК</li>
+            <li>Почта России</li>
+            <li>Курьером</li>
+        </ul>
+        <p>По желанию можем передать товар в вашу транспортную компанию.</p>
+
+        <h3>✈️ Доставка по всей России</h3>
+        <p>Доставка в регионы России осуществляется по 100% предоплате за продукцию и доставку (рассчитывается отдельно)</p>
+        <ul>
+            <li>CDEK</li>
+            <li>Почта России</li>
+        </ul>
+        <p>По желанию можем передать товар в вашу транспортную компанию.</p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        © 2025 ONLY Y DTF печать — все права защищены.
+        · <a href="docs/Политика%20обработки%20ПНд.docx" target="_blank" rel="noopener">
+        Политика конфиденциальности
+    </a>
+    </div>
+</footer>
+
+<script src="./script/script.js?v=2" defer></script>
 </body>
 </html>
